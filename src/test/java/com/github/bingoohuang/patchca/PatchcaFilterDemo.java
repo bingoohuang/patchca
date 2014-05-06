@@ -62,11 +62,10 @@ public class PatchcaFilterDemo extends JDialog implements ActionListener {
     public void createImage() {
         Captcha captcha = CaptchcaUtils.createCaptchca();
         if (captcha.getWord().equals(captcha.getChallenge())) {
-            setTitle(captcha.getTips() + " 问题:" + captcha.getWord() + " 答案:" + captcha.getChallenge());
+            setTitle(captcha.getTips() + " 答:" + captcha.getChallenge());
         }
         else {
-            setTitle(captcha.getTips() + " 答案:" + captcha.getChallenge());
-
+            setTitle(captcha.getTips() + " 问:" + captcha.getWord() + " 答:" + captcha.getChallenge());
         }
 
         img = captcha.getImage();

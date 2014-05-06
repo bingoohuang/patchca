@@ -98,7 +98,7 @@ public class MyCustomBackgroundFactory implements BackgroundFactory {
         // 图片滤镜设置
         ConfigurableFilterFactory filterFactory = new ConfigurableFilterFactory();
 
-        java.util.List<BufferedImageOp> filters = new ArrayList<>();
+        java.util.List<BufferedImageOp> filters = new ArrayList<BufferedImageOp>();
         WobbleImageOp wobbleImageOp = new WobbleImageOp();
         wobbleImageOp.setEdgeMode(AbstractImageOp.EDGE_MIRROR);
         wobbleImageOp.setxAmplitude(2.0);

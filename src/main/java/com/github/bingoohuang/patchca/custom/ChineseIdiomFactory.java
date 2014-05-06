@@ -16,6 +16,7 @@ public class ChineseIdiomFactory implements WordFactory {
         String str = StrUtils.loadClasspathResourceToString("/com/github/bingoohuang/patchca/chineseidioms.txt");
         Iterable<String> split = Splitter.onPattern("\\s+").omitEmptyStrings().split(str);
         idioms = Iterables.toArray(split, String.class);
+        System.out.println(idioms.length);
     }
 
     public WordBean getNextWord() {

@@ -3,7 +3,17 @@ package com.github.bingoohuang.patchca.random;
 /**
  * GB2312Unicde.java
  * Copyright (c) 1997-2003 by Dr. Herong Yang
+ *
+ * GB2312或GB 2312-80是一个简体中文字符集的中国国家标准，全称为《信息交换用汉字编码字符集·基本集》，又稱為GB0，
+ * 由中国国家标准总局发布，1981年5月1日实施。GB2312编码通行于大陆；新加坡等地也采用此编码。
+ * 几乎所有的中文系统和国际化的软件都支持GB 2312。 GB 2312标准共收录6763个汉字，其中一级汉字3755个，二级汉字3008个；
+ * 同时，GB 2312收录了包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在内的682个全形字符。
+ * GB 2312的出现，基本满足了汉字的计算机处理需要，它所收录的汉字已经覆盖99.75%的使用频率。
+ *
+ * 注：中华人民共和国国家标准，简称国标（Guóbiāo，GB，按汉语拼音发音），是包括语编码系统的国家标准码，
+ * 都能由在国际标准化组织（ISO）和国际电工委员会（或稱國際電工協會，IEC）代表中华人民共和国的会员机构：国家标准化管理委员会发布。
  */
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -14,22 +24,21 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 
-class GB2312Unicde {
+class GB2312Unicode {
     static OutputStream out = null;
-    static char hexDigit[] = { '0', '1', '2', '3', '4', '5', '6', '7',
-            '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-    static int b_out[] = { 201, 267, 279, 293, 484, 587, 625, 657, 734, 782, 827,
-            874, 901, 980, 5590 };
-    static int e_out[] = { 216, 268, 280, 294, 494, 594, 632, 694, 748, 794, 836,
-            894, 903, 994, 5594 };
+    static char hexDigit[] = {'0', '1', '2', '3', '4', '5', '6', '7',
+            '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    static int b_out[] = {201, 267, 279, 293, 484, 587, 625, 657, 734, 782, 827,
+            874, 901, 980, 5590};
+    static int e_out[] = {216, 268, 280, 294, 494, 594, 632, 694, 748, 794, 836,
+            894, 903, 994, 5594};
 
     public static void main(String[] args) {
         try {
             out = new FileOutputStream("gb2312.gb");
             writeCode();
             out.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e.toString());
         }
     }
@@ -51,20 +60,16 @@ class GB2312Unicde {
             if (i >= 1 && i <= 9) {
                 reserved = false;
                 name = "Graphic symbols";
-            }
-            else if (i >= 10 && i <= 15) {
+            } else if (i >= 10 && i <= 15) {
                 reserved = true;
                 name = "Reserved";
-            }
-            else if (i >= 16 && i <= 55) {
+            } else if (i >= 16 && i <= 55) {
                 reserved = false;
                 name = "Level 1 characters";
-            }
-            else if (i >= 56 && i <= 87) {
+            } else if (i >= 56 && i <= 87) {
                 reserved = false;
                 name = "Level 2 characters";
-            }
-            else if (i >= 88 && i <= 94) {
+            } else if (i >= 88 && i <= 94) {
                 reserved = true;
                 name = "Reserved";
             }
@@ -85,9 +90,9 @@ class GB2312Unicde {
                     byte lo = (byte) (0xA0 + j);
                     if (validGB(i, j)) {
                         // getting GB, UTF-16BE, UTF-8 codes
-                        gbbb = ByteBuffer.wrap(new byte[] { hi, lo });
+                        gbbb = ByteBuffer.wrap(new byte[]{hi, lo});
                         if (i >= 16 && i <= 55) {
-                            String str = new String(new byte[] { hi, lo }, "GBK");
+                            String str = new String(new byte[]{hi, lo}, "GBK");
                             System.out.println(str);
                         }
                         try {
@@ -95,14 +100,12 @@ class GB2312Unicde {
                             uxbb = uxec.encode(cb);
                             cb.rewind();
                             u8bb = u8ec.encode(cb);
-                        }
-                        catch (CharacterCodingException e) {
+                        } catch (CharacterCodingException e) {
                             cb = null;
                             uxbb = null;
                             u8bb = null;
                         }
-                    }
-                    else {
+                    } else {
                         cb = null;
                         uxbb = null;
                         u8bb = null;
@@ -117,8 +120,7 @@ class GB2312Unicde {
                         writeHex(hi);
                         writeHex(lo);
                         count++;
-                    }
-                    else {
+                    } else {
                         writeGBSpace();
                         writeString(" null");
                     }
@@ -128,8 +130,7 @@ class GB2312Unicde {
                     writeByteBuffer(u8bb, 3);
                     if (j % 2 == 0) {
                         writeln();
-                    }
-                    else {
+                    } else {
                         writeString("   ");
                     }
                 }
@@ -154,8 +155,7 @@ class GB2312Unicde {
         if (b == null) {
             writeString("null");
             i = 2;
-        }
-        else {
+        } else {
             for (i = 0; i < b.limit(); i++) {
                 writeHex(b.get(i));
             }
