@@ -35,17 +35,20 @@ public class ConfigurableCaptchaService extends AbstractCaptchaService {
     private  ArrayList<WordFactory> wordFactories = new ArrayList<WordFactory>();
 
      {
-        wordFactories.add(new MathExprFactory()); // 三个单数运算
-        wordFactories.add(new MathArithmeticFactory()); // 四则运算
-        wordFactories.add(new ChineseIdiomFactory()); // 成语
-        wordFactories.add(new ChineseIdiomGuessFactory()); // 成语猜字
-        wordFactories.add(new EnglishWordFactory()); // 常见2000英语单词
-        wordFactories.add(new AdaptiveRandomWordFactory()); // 宽字符只会有一个的随机
-        wordFactories.add(new RandomWordFactory()); // 随机
-        wordFactories.add(new SymbolDiffFactory()); // 符号找不同
-        wordFactories.add(new KnowledgeWordFactory()); // 地理知识
-        wordFactories.add(new AdaptiveRandomWordFactory());
-        wordFactories.add(new RandomChineseFactory()); // 随机汉字
+//        wordFactories.add(new MathExprFactory()); // 三个单数运算
+//        wordFactories.add(new MathArithmeticFactory()); // 四则运算
+//        wordFactories.add(new ChineseIdiomFactory()); // 成语
+//        wordFactories.add(new ChineseIdiomGuessFactory()); // 成语猜字
+//        wordFactories.add(new EnglishWordFactory()); // 常见2000英语单词
+//        wordFactories.add(new AdaptiveRandomWordFactory()); // 宽字符只会有一个的随机
+//        wordFactories.add(new RandomWordFactory()); // 随机
+//        wordFactories.add(new SymbolDiffFactory()); // 符号找不同
+//        wordFactories.add(new KnowledgeWordFactory()); // 地理知识
+//        wordFactories.add(new AdaptiveRandomWordFactory());
+//        wordFactories.add(new RandomChineseFactory()); // 随机汉字
+        wordFactories.add(new RandomChineseJianpinFactory()); // 随机汉字简拼
+        wordFactories.add(new ChineseIdiomJianpingFactory()); // 随机成语简拼
+        wordFactories.add(new RandomChineseQuanpinFactory()); // 随机汉字全拼
     }
 
     public ConfigurableCaptchaService() {
@@ -77,8 +80,8 @@ public class ConfigurableCaptchaService extends AbstractCaptchaService {
         //filterFactory = new CurvesRippleFilterFactory(colorFactory);
         textRenderer.setLeftMargin(10);
         textRenderer.setRightMargin(10);
-        width = 180;
-        height = 70;
+        width = 400;
+        height = 100;
     }
 
 }
