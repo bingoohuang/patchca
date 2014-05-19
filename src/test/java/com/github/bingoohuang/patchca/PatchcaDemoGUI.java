@@ -12,13 +12,13 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
 
-public class PatchcaFilterDemo extends JDialog implements ActionListener {
+public class PatchcaDemoGUI extends JDialog implements ActionListener {
 
     private static final long serialVersionUID = 6698906953413370733L;
     private BufferedImage img;
     private JButton reloadButton;
 
-    public PatchcaFilterDemo() {
+    public PatchcaDemoGUI() {
         super.setTitle("Patchca demo");
         setResizable(false);
         setSize(500, 200);
@@ -75,7 +75,7 @@ public class PatchcaFilterDemo extends JDialog implements ActionListener {
     }
 
     public static void main(String[] args) {
-        PatchcaFilterDemo f = new PatchcaFilterDemo();
+        PatchcaDemoGUI f = new PatchcaDemoGUI();
         f.setVisible(true);
     }
 

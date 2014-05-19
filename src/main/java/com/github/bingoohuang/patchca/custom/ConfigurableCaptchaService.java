@@ -46,9 +46,9 @@ public class ConfigurableCaptchaService extends AbstractCaptchaService {
 //        wordFactories.add(new KnowledgeWordFactory()); // 地理知识
 //        wordFactories.add(new AdaptiveRandomWordFactory());
 //        wordFactories.add(new RandomChineseFactory()); // 随机汉字
-        wordFactories.add(new RandomChineseJianpinFactory()); // 随机汉字简拼
+//        wordFactories.add(new RandomChineseJianpinFactory()); // 随机汉字简拼
         wordFactories.add(new ChineseIdiomJianpingFactory()); // 随机成语简拼
-        wordFactories.add(new RandomChineseQuanpinFactory()); // 随机汉字全拼
+//        wordFactories.add(new RandomChineseQuanpinFactory()); // 随机汉字全拼
     }
 
     public ConfigurableCaptchaService() {

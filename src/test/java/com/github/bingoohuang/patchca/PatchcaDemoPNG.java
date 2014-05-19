@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.io.FileOutputStream;
 
 
-public class PatchcaFilterDemoPNG {
+public class PatchcaDemoPNG {
 
     public static void main(String[] args) throws Exception {
         for (int counter = 0; counter < 5; counter++) {
