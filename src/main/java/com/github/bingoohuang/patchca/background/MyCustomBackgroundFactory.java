@@ -87,7 +87,6 @@ public class MyCustomBackgroundFactory implements BackgroundFactory {
         wordFactory.setCharacters("abcdefghkmnpqstwxyz23456789");
         wordFactory.setMaxLength(5);
         wordFactory.setMinLength(4);
-        fontFactory.setWordFactory(wordFactory);
         configurableCaptchaService.setWordFactory(wordFactory);
 
 

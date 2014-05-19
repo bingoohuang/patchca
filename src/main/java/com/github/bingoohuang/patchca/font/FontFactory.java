@@ -20,12 +20,14 @@ package com.github.bingoohuang.patchca.font;
 
 import com.github.bingoohuang.patchca.word.WordFactory;
 
-import java.awt.Font;
+import java.awt.*;
 
 
 public interface FontFactory {
 
-	Font getFont(int index);
+    Font getFont(int index);
+
+    void setWord(String word);
 
     void setWordFactory(WordFactory wordFactory);
 }

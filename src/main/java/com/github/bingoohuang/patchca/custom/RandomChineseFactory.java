@@ -15,6 +15,6 @@ public class RandomChineseFactory implements WordFactory {
 
     @Override
     public String[] getSupportedFontFamilies() {
-        return new String[]{"宋体"};
+        return null;
     }
 }

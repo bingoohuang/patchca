@@ -21,19 +21,17 @@ package com.github.bingoohuang.patchca.font;
 import com.github.bingoohuang.patchca.random.RandUtils;
 import com.github.bingoohuang.patchca.word.WordFactory;
 
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
 public class RandomFontFactory implements FontFactory {
-
     protected List<String> families;
     protected int minSize;
     protected int maxSize;
-    protected boolean randomStyle;
+    private String word;
     private WordFactory wordFactory;
 
     public RandomFontFactory() {
@@ -42,8 +40,7 @@ public class RandomFontFactory implements FontFactory {
                 .getLocalGraphicsEnvironment()
                 .getAvailableFontFamilyNames();
         for (String fontName : fontNames) {
-            Font f = new Font(fontName, Font.PLAIN, 12);
-            if (f.canDisplay('a')) {
+            if (canDisplay(fontName, 'a')) {
                 //... Display only fonts that have the alphabetic characters.
                 families.add(fontName);
             }
@@ -53,29 +50,11 @@ public class RandomFontFactory implements FontFactory {
         maxSize = 45;
     }
 
-    public RandomFontFactory(List<String> families) {
-        this();
-        this.families = families;
+    public boolean canDisplay(String fontName, char ch) {
+        Font f = new Font(fontName, Font.PLAIN, 12);
+        return f.canDisplay(ch);
     }
 
-    public RandomFontFactory(String[] families) {
-        this();
-        this.families = Arrays.asList(families);
-    }
-
-    public RandomFontFactory(int size, List<String> families) {
-        this(families);
-        minSize = maxSize = size;
-    }
-
-    public RandomFontFactory(int size, String[] families) {
-        this(families);
-        minSize = maxSize = size;
-    }
-
-    public void setFamilies(List<String> families) {
-        this.families = families;
-    }
 
     public void setMinSize(int minSize) {
         this.minSize = minSize;
@@ -85,28 +64,35 @@ public class RandomFontFactory implements FontFactory {
         this.maxSize = maxSize;
     }
 
-    public void setRandomStyle(boolean randomStyle) {
-        this.randomStyle = randomStyle;
-    }
-
     @Override
     public Font getFont(int index) {
-        boolean bold = RandUtils.randBoolean() && randomStyle;
+        boolean bold = RandUtils.randBoolean();
+
         int size = minSize;
         if (maxSize - minSize > 0) {
             size += RandUtils.randInt(maxSize - minSize);
         }
 
         String[] supportedFamilies = wordFactory.getSupportedFontFamilies();
-        if (supportedFamilies != null && supportedFamilies.length > 0) 
+        if (supportedFamilies != null && supportedFamilies.length > 0)
             return new Font(supportedFamilies[RandUtils.randInt(supportedFamilies.length)],
-                bold ? Font.BOLD : Font.PLAIN, size); 
+                    bold ? Font.BOLD : Font.PLAIN, size);
 
-        String family = families.get(RandUtils.randInt(families.size()));
+        String family;
+        TRY: while(true) {
+            family = families.get(RandUtils.randInt(families.size()));
+            for (char ch : word.toCharArray())
+                if (!canDisplay(family, ch)) continue TRY;
 
-        Font font = new Font(family, bold ? Font.BOLD : Font.PLAIN, size);
+            break;
+        }
 
-        return font;
+        return new Font(family, bold ? Font.BOLD : Font.PLAIN, size);
+    }
+
+    @Override
+    public void setWord(String word) {
+        this.word = word;
     }
 
     @Override
