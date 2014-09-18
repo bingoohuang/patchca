@@ -8,7 +8,7 @@ import com.github.bingoohuang.patchca.word.WordFactory;
 public class RandomChineseFactory implements WordFactory {
     @Override
     public WordBean getNextWord() {
-        String  randChinese = RandUtils.randChinese((3 + RandUtils.randInt(2)));
+        String randChinese = RandUtils.randChinese((3 + RandUtils.randInt(2)));
 
         return new WordBean(randChinese, randChinese, "请输入图片中的文字");
     }

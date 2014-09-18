@@ -20,21 +20,29 @@ package com.github.bingoohuang.patchca.custom;
 
 import com.github.bingoohuang.patchca.background.SingleColorBackgroundFactory;
 import com.github.bingoohuang.patchca.color.SingleColorFactory;
-import com.github.bingoohuang.patchca.filter.predefined.*;
+import com.github.bingoohuang.patchca.filter.predefined.CurvesRippleFilterFactory;
 import com.github.bingoohuang.patchca.font.RandomFontFactory;
-import com.github.bingoohuang.patchca.random.RandUtils;
 import com.github.bingoohuang.patchca.service.AbstractCaptchaService;
 import com.github.bingoohuang.patchca.text.renderer.BestFitTextRenderer;
 import com.github.bingoohuang.patchca.word.AdaptiveRandomWordFactory;
-import com.github.bingoohuang.patchca.word.RandomWordFactory;
-import com.github.bingoohuang.patchca.word.WordFactory;
-
-import java.util.ArrayList;
 
 public class ConfigurableCaptchaService extends AbstractCaptchaService {
-    private  ArrayList<WordFactory> wordFactories = new ArrayList<WordFactory>();
-
-     {
+    public ConfigurableCaptchaService() {
+        backgroundFactory = new SingleColorBackgroundFactory();
+        wordFactory = new AdaptiveRandomWordFactory();
+        fontFactory = new RandomFontFactory();
+        textRenderer = new BestFitTextRenderer();
+        colorFactory = new SingleColorFactory();
+        filterFactory = new CurvesRippleFilterFactory(colorFactory);
+        textRenderer.setLeftMargin(10);
+        textRenderer.setRightMargin(10);
+        width = 160;
+        height = 70;
+    }
+//
+//    private ArrayList<WordFactory> wordFactories = new ArrayList<WordFactory>();
+//
+//    {
 //        wordFactories.add(new MathExprFactory()); // 三个单数运算
 //        wordFactories.add(new MathArithmeticFactory()); // 四则运算
 //        wordFactories.add(new ChineseIdiomFactory()); // 成语
@@ -47,41 +55,41 @@ public class ConfigurableCaptchaService extends AbstractCaptchaService {
 //        wordFactories.add(new AdaptiveRandomWordFactory());
 //        wordFactories.add(new RandomChineseFactory()); // 随机汉字
 //        wordFactories.add(new RandomChineseJianpinFactory()); // 随机汉字简拼
-        wordFactories.add(new ChineseIdiomJianpingFactory()); // 随机成语简拼
+//        wordFactories.add(new ChineseIdiomJianpingFactory()); // 随机成语简拼
 //        wordFactories.add(new RandomChineseQuanpinFactory()); // 随机汉字全拼
-    }
-
-    public ConfigurableCaptchaService() {
-        backgroundFactory = new SingleColorBackgroundFactory();
-        wordFactory = new RandomFactoryWordFactory(wordFactories);
-        fontFactory = new RandomFontFactory();
-        fontFactory.setWordFactory(wordFactory);
-        textRenderer = new BestFitTextRenderer();
-        colorFactory = new SingleColorFactory();
-
-        switch (RandUtils.randInt(3)) {
-            case 0:
-                filterFactory = new CurvesRippleFilterFactory(colorFactory);
-                break;
+//    }
+//
+//    public ConfigurableCaptchaService() {
+//        backgroundFactory = new SingleColorBackgroundFactory();
+//        wordFactory = new RandomFactoryWordFactory(wordFactories);
+//        fontFactory = new RandomFontFactory();
+//        fontFactory.setWordFactory(wordFactory);
+//        textRenderer = new BestFitTextRenderer();
+//        colorFactory = new SingleColorFactory();
+//
+//        switch (RandUtils.randInt(5)) {
+//            case 0:
+//                filterFactory = new CurvesRippleFilterFactory(colorFactory);
+//                break;
 //            case 1:
 //                filterFactory = new MarbleRippleFilterFactory(); // 不清楚
 //                break;
-            case 1:
-                filterFactory = new DoubleRippleFilterFactory(); // 很清楚
-                break;
-            case 2:
-                filterFactory = new WobbleRippleFilterFactory();
-                break;
+//            case 2:
+//                filterFactory = new DoubleRippleFilterFactory(); // 很清楚
+//                break;
+//            case 3:
+//                filterFactory = new WobbleRippleFilterFactory();
+//                break;
 //            case 4:
 //                filterFactory = new DiffuseRippleFilterFactory();
 //                break;
-        }
-
-        //filterFactory = new CurvesRippleFilterFactory(colorFactory);
-        textRenderer.setLeftMargin(10);
-        textRenderer.setRightMargin(10);
-        width = 400;
-        height = 100;
-    }
+//        }
+//
+//        //filterFactory = new CurvesRippleFilterFactory(colorFactory);
+//        textRenderer.setLeftMargin(10);
+//        textRenderer.setRightMargin(10);
+//        width = 400;
+//        height = 100;
+//    }
 
 }

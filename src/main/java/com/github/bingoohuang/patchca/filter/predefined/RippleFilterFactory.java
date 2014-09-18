@@ -18,12 +18,12 @@
  */
 package com.github.bingoohuang.patchca.filter.predefined;
 
+import com.github.bingoohuang.patchca.filter.AbstractFilterFactory;
+import com.github.bingoohuang.patchca.filter.library.RippleImageOp;
+
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.github.bingoohuang.patchca.filter.AbstractFilterFactory;
-import com.github.bingoohuang.patchca.filter.library.RippleImageOp;
 
 public class RippleFilterFactory extends AbstractFilterFactory {
 

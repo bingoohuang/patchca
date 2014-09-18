@@ -56,7 +56,8 @@ public class RandomWordFactory implements WordFactory {
         return new WordBean(answer, answer, "请输入图片中的文字");
     }
 
-    private static  char ch = '\u2600';
+    private static char ch = '\u2600';
+
     public String transformString() {
         //  0x2700 to 0x27be, U+2600 - 0x41 ('A')
         // Unicode Dingbats range in 0x2700 to 0x27be - you should get the right glyphs to display.

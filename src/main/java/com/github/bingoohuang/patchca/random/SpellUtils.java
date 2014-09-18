@@ -11,9 +11,8 @@ public class SpellUtils {
 
     /**
      * 获取全部拼音
-     * 
-     * @param src
-     *            原字符串
+     *
+     * @param src 原字符串
      * @return
      */
     public static String getFull(String src) {
@@ -28,15 +27,13 @@ public class SpellUtils {
                 if (Character.toString(element).matches("[\\u4E00-\\u9FA5]+")) {
                     String[] srcArry = PinyinHelper.toHanyuPinyinStringArray(element, format);
                     pinyin.append(srcArry[0]);
-                }
-                else {
+                } else {
                     pinyin.append(Character.toString(element));
                 }
             }
 
-        }
-        catch (BadHanyuPinyinOutputFormatCombination e1) {
-           // e1.printStackTrace();
+        } catch (BadHanyuPinyinOutputFormatCombination e1) {
+            // e1.printStackTrace();
         }
 
         return pinyin.toString();
@@ -44,9 +41,8 @@ public class SpellUtils {
 
     /**
      * 获取首字母拼音
-     * 
-     * @param str
-     *            原字符串
+     *
+     * @param str 原字符串
      * @return
      */
     public static String getFirst(String str) {
@@ -55,8 +51,7 @@ public class SpellUtils {
             String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
             if (pinyinArray != null) {
                 pinyin.append(pinyinArray[0].charAt(0));
-            }
-            else {
+            } else {
                 pinyin.append(word);
             }
         }

@@ -37,7 +37,7 @@ public abstract class AbstractConvolveImageOp extends AbstractImageOp {
             int ytop = y + matrixTop;
             int ybottom = y + matrixTop + matrixHeight;
             for (int x = 0; x < width; x++) {
-                float[] sum = { 0.5f, 0.5f, 0.5f, 0.5f };
+                float[] sum = {0.5f, 0.5f, 0.5f, 0.5f};
                 int xleft = x + mattrixLeft;
                 int xright = x + mattrixLeft + matrixWidth;
                 int matrixY = 0;

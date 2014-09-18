@@ -18,21 +18,21 @@
  */
 package com.github.bingoohuang.patchca.filter.predefined;
 
+import com.github.bingoohuang.patchca.filter.library.DiffuseImageOp;
+
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.bingoohuang.patchca.filter.library.DiffuseImageOp;
-
 
 public class DiffuseRippleFilterFactory extends RippleFilterFactory {
 
-	protected DiffuseImageOp diffuse = new DiffuseImageOp();
+    protected DiffuseImageOp diffuse = new DiffuseImageOp();
 
-	@Override
-	protected List<BufferedImageOp> getPreRippleFilters() {
-		List<BufferedImageOp> list = new ArrayList<BufferedImageOp>();
-		list.add(diffuse);
-		return list;
-	}
+    @Override
+    protected List<BufferedImageOp> getPreRippleFilters() {
+        List<BufferedImageOp> list = new ArrayList<BufferedImageOp>();
+        list.add(diffuse);
+        return list;
+    }
 }

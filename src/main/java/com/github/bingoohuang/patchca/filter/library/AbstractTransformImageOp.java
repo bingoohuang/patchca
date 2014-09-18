@@ -22,7 +22,8 @@ public abstract class AbstractTransformImageOp extends AbstractImageOp {
 
     protected abstract void transform(int x, int y, double[] t);
 
-    protected void init() {}
+    protected void init() {
+    }
 
     private boolean initialized;
 

@@ -18,9 +18,9 @@
  */
 package com.github.bingoohuang.patchca.color;
 
-import java.awt.Color;
+import java.awt.*;
 
 public interface ColorFactory {
 
-	Color getColor(int index);
+    Color getColor(int index);
 }

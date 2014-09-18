@@ -1,16 +1,16 @@
 package com.github.bingoohuang.patchca.custom;
 
-import java.util.ArrayList;
-
-import com.github.bingoohuang.patchca.random.StrUtils;
 import com.github.bingoohuang.patchca.random.RandUtils;
+import com.github.bingoohuang.patchca.random.StrUtils;
 import com.github.bingoohuang.patchca.word.WordBean;
 import com.github.bingoohuang.patchca.word.WordFactory;
-
 import com.google.common.base.Splitter;
+
+import java.util.ArrayList;
 
 public class SymbolDiffFactory implements WordFactory {
     private static String[] symbols;
+
     static {
         /*按-分组，同一个组内以,分割*/
         String availableSymbols = "2600-2601-2602-2603-2604-2605,2606-2607,2608-2609-260a,260b-260c,260d-260e,260f-"
@@ -65,13 +65,13 @@ public class SymbolDiffFactory implements WordFactory {
 
         int len = 4 + RandUtils.randInt(2);
         int diffPos = RandUtils.randInt(len);
-        String word = StrUtils.repeat("" + ch1, diffPos) + ch2 + StrUtils.repeat("" + ch1, len - diffPos - 1) ;
+        String word = StrUtils.repeat("" + ch1, diffPos) + ch2 + StrUtils.repeat("" + ch1, len - diffPos - 1);
 
         return new WordBean(word, "" + (diffPos + 1), "找出符号中不同符号的序号");
     }
 
     @Override
     public String[] getSupportedFontFamilies() {
-        return new String[] { "dialog" };
+        return new String[]{"dialog"};
     }
 }

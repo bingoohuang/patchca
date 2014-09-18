@@ -18,8 +18,6 @@
  */
 package com.github.bingoohuang.patchca.service;
 
-import java.awt.image.BufferedImage;
-
 import com.github.bingoohuang.patchca.background.BackgroundFactory;
 import com.github.bingoohuang.patchca.color.ColorFactory;
 import com.github.bingoohuang.patchca.filter.FilterFactory;
@@ -27,6 +25,8 @@ import com.github.bingoohuang.patchca.font.FontFactory;
 import com.github.bingoohuang.patchca.text.renderer.TextRenderer;
 import com.github.bingoohuang.patchca.word.WordBean;
 import com.github.bingoohuang.patchca.word.WordFactory;
+
+import java.awt.image.BufferedImage;
 
 public abstract class AbstractCaptchaService implements CaptchaService {
 

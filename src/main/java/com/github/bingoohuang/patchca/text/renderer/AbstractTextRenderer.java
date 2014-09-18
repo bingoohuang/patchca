@@ -18,16 +18,13 @@
  */
 package com.github.bingoohuang.patchca.text.renderer;
 
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import com.github.bingoohuang.patchca.color.ColorFactory;
+import com.github.bingoohuang.patchca.font.FontFactory;
+
+import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-
-import com.github.bingoohuang.patchca.color.ColorFactory;
-import com.github.bingoohuang.patchca.font.FontFactory;
 
 public abstract class AbstractTextRenderer implements TextRenderer {
 
@@ -66,7 +63,7 @@ public abstract class AbstractTextRenderer implements TextRenderer {
     @Override
     public void draw(String text, BufferedImage canvas, FontFactory fontFactory, ColorFactory colorFactory) {
         Graphics2D g = (Graphics2D) canvas.getGraphics();
-        
+
         TextString ts = convertToCharacters(text, g, fontFactory, colorFactory);
         arrangeCharacters(canvas.getWidth(), canvas.getHeight(), ts);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -79,7 +76,7 @@ public abstract class AbstractTextRenderer implements TextRenderer {
     }
 
     protected TextString convertToCharacters(String text, Graphics2D g, FontFactory fontFactory,
-            ColorFactory colorFactory) {
+                                             ColorFactory colorFactory) {
         TextString characters = new TextString();
         FontRenderContext frc = g.getFontRenderContext();
         double lastx = 0;

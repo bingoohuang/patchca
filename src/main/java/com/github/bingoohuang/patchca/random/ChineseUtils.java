@@ -38,9 +38,8 @@ public class ChineseUtils {
                 byte lo = (byte) (0xA0 + j);
                 if (validGB(i, j)) {
                     try {
-                        sb.append(new String(new byte[] { hi, lo }, "GBK"));
-                    }
-                    catch (UnsupportedEncodingException e) {
+                        sb.append(new String(new byte[]{hi, lo}, "GBK"));
+                    } catch (UnsupportedEncodingException e) {
                         // Ignore
                     }
                 }
@@ -50,9 +49,10 @@ public class ChineseUtils {
         return sb.toString();
     }
 
-    private static int b_out[] = { 201, 267, 279, 293, 484, 587, 625, 657, 734, 782, 827, 874, 901, 980, 5590 };
-    private static int e_out[] = { 216, 268, 280, 294, 494, 594, 632, 694, 748, 794, 836, 894, 903, 994, 5594 };
+    private static int b_out[] = {201, 267, 279, 293, 484, 587, 625, 657, 734, 782, 827, 874, 901, 980, 5590};
+    private static int e_out[] = {216, 268, 280, 294, 494, 594, 632, 694, 748, 794, 836, 894, 903, 994, 5594};
     private static String levelOneCharacters;
+
     static {
         levelOneCharacters = generateCharacters(16, 55);
     }
@@ -60,7 +60,9 @@ public class ChineseUtils {
 
     private static boolean validGB(int i, int j) {
         for (int l = 0; l < b_out.length; l++) {
-            if (i * 100 + j >= b_out[l] && i * 100 + j <= e_out[l]) { return false; }
+            if (i * 100 + j >= b_out[l] && i * 100 + j <= e_out[l]) {
+                return false;
+            }
         }
         return true;
     }

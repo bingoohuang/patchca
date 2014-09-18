@@ -5,11 +5,11 @@ import com.github.bingoohuang.patchca.word.WordBean;
 import com.github.bingoohuang.patchca.word.WordFactory;
 
 public class MathArithmeticFactory implements WordFactory {
-    private static String[] chineseNumber = new String[] { "零", "一壹㈠①⑴", "二㈡贰②⑵", "三㈢叁③⑶",
+    private static String[] chineseNumber = new String[]{"零", "一壹㈠①⑴", "二㈡贰②⑵", "三㈢叁③⑶",
             "四㈣肆④⑷", "五㈤伍⑤⑸", "六㈥陆⑥⑹", "七㈦柒⑦⑺",
-            "八㈧捌⑧⑻", "九㈨玖⑨⑼", "十㈩拾⑩⑽", "百佰", "千仟", "万" };
+            "八㈧捌⑧⑻", "九㈨玖⑨⑼", "十㈩拾⑩⑽", "百佰", "千仟", "万"};
 
-    private static String[] operations = new String[] { "加+", "减", "乘X", "除÷" };
+    private static String[] operations = new String[]{"加+", "减", "乘X", "除÷"};
 
     public static String rand(int n) {
         if (n > 9) return "" + n;
@@ -40,54 +40,43 @@ public class MathArithmeticFactory implements WordFactory {
             if (askPos == 0) {
                 expected = Math.abs(n1 - n2);
                 result = "?" + opCh + randMin + '=' + randMax;
-            }
-            else if (askPos == 1) {
+            } else if (askPos == 1) {
                 expected = Math.abs(n1 - n2);
                 result = randMin + opCh + "?=" + randMax;
-            }
-            else if (askPos == 2) {
+            } else if (askPos == 2) {
                 expected = n1 + n2;
                 result = rand1 + opCh + rand2 + "=?";
             }
-        }
-        else if (op == 1) { // -
+        } else if (op == 1) { // -
             if (askPos == 0) {
                 expected = n1 + n2;
                 result = "?" + opCh + rand1 + '=' + rand2;
-            }
-            else if (askPos == 1) {
+            } else if (askPos == 1) {
                 expected = Math.abs(n1 - n2);
                 result = randMax + opCh + "?=" + randMin;
-            }
-            else if (askPos == 2) {
+            } else if (askPos == 2) {
                 expected = Math.abs(n1 - n2);
                 result = randMax + opCh + randMin + "=?";
             }
-        }
-        else if (op == 2) { // *
+        } else if (op == 2) { // *
             if (askPos == 0) {
                 expected = n2;
                 result = "?" + opCh + rand1 + '=' + rand12;
-            }
-            else if (askPos == 1) {
+            } else if (askPos == 1) {
                 expected = n2;
                 result = rand1 + opCh + "?=" + rand12;
-            }
-            else if (askPos == 2) {
+            } else if (askPos == 2) {
                 expected = n2 * n1;
                 result = rand1 + opCh + rand2 + "=?";
             }
-        }
-        else if (op == 3) { // /
+        } else if (op == 3) { // /
             if (askPos == 0) {
                 expected = n2 * n1;
                 result = "?" + opCh + rand1 + '=' + rand2;
-            }
-            else if (askPos == 1) {
+            } else if (askPos == 1) {
                 expected = n2;
                 result = rand12 + opCh + "?=" + rand1;
-            }
-            else if (askPos == 2) {
+            } else if (askPos == 2) {
                 expected = n2;
                 result = rand12 + opCh + rand1 + "=?";
             }

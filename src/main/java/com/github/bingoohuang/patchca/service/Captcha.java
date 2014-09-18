@@ -37,10 +37,6 @@ public class Captcha {
         return challenge;
     }
 
-    public void setChallenge(String challenge) {
-        this.challenge = challenge;
-    }
-
     public BufferedImage getImage() {
         return image;
     }
@@ -60,9 +56,4 @@ public class Captcha {
     public String getTips() {
         return tips;
     }
-
-    public void setTips(String tips) {
-        this.tips = tips;
-    }
-
 }

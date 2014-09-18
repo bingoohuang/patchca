@@ -1,6 +1,5 @@
 package com.github.bingoohuang.patchca;
 
-import com.github.bingoohuang.patchca.custom.ConfigurableCaptchaService;
 import com.github.bingoohuang.patchca.service.Captcha;
 
 import javax.swing.*;
@@ -55,7 +54,8 @@ public class PatchcaDemoGUI extends JDialog implements ActionListener {
     }
 
     public void createImage() {
-        Captcha captcha = new ConfigurableCaptchaService().getCaptcha();
+        // Captcha captcha = new ConfigurableCaptchaService().getCaptcha();
+        Captcha captcha = Patchca.next();
         if (captcha.getWord().equals(captcha.getChallenge())) {
             setTitle(captcha.getTips() + " 答:" + captcha.getChallenge());
         } else {

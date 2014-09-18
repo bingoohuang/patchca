@@ -18,30 +18,30 @@
  */
 package com.github.bingoohuang.patchca.filter.predefined;
 
+import com.github.bingoohuang.patchca.filter.AbstractFilterFactory;
+import com.github.bingoohuang.patchca.filter.library.DoubleRippleImageOp;
+
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.bingoohuang.patchca.filter.AbstractFilterFactory;
-import com.github.bingoohuang.patchca.filter.library.DoubleRippleImageOp;
-
 
 public class DoubleRippleFilterFactory extends AbstractFilterFactory {
 
-	protected List<BufferedImageOp> filters;
-	protected DoubleRippleImageOp ripple;
-	
-	public DoubleRippleFilterFactory() {
-		ripple = new DoubleRippleImageOp();
-	}
+    protected List<BufferedImageOp> filters;
+    protected DoubleRippleImageOp ripple;
 
-	@Override
-	public List<BufferedImageOp> getFilters() {
-		if (filters == null) {
-			filters = new ArrayList<BufferedImageOp>();
-			filters.add(ripple);
-		}
-		return filters;
-	}
-	
+    public DoubleRippleFilterFactory() {
+        ripple = new DoubleRippleImageOp();
+    }
+
+    @Override
+    public List<BufferedImageOp> getFilters() {
+        if (filters == null) {
+            filters = new ArrayList<BufferedImageOp>();
+            filters.add(ripple);
+        }
+        return filters;
+    }
+
 }

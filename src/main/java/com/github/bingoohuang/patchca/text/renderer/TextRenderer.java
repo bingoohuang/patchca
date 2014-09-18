@@ -18,21 +18,21 @@
  */
 package com.github.bingoohuang.patchca.text.renderer;
 
-import java.awt.image.BufferedImage;
-
 import com.github.bingoohuang.patchca.color.ColorFactory;
 import com.github.bingoohuang.patchca.font.FontFactory;
 
+import java.awt.image.BufferedImage;
+
 public interface TextRenderer {
 
-	void setLeftMargin(int leftMargin);
+    void setLeftMargin(int leftMargin);
 
-	void setRightMargin(int rightMargin);
+    void setRightMargin(int rightMargin);
 
-	void setTopMargin(int topMargin);
+    void setTopMargin(int topMargin);
 
-	void setBottomMargin(int bottomMargin);
+    void setBottomMargin(int bottomMargin);
 
-	void draw(String text, BufferedImage canvas, FontFactory fontFactory, ColorFactory colorFactory);
+    void draw(String text, BufferedImage canvas, FontFactory fontFactory, ColorFactory colorFactory);
 
 }

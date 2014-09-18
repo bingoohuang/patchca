@@ -18,23 +18,23 @@
  */
 package com.github.bingoohuang.patchca.filter.predefined;
 
+import com.github.bingoohuang.patchca.filter.library.MarbleImageOp;
+
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.bingoohuang.patchca.filter.library.MarbleImageOp;
-
 
 public class MarbleRippleFilterFactory extends RippleFilterFactory {
 
-	protected MarbleImageOp marble = new MarbleImageOp();
+    protected MarbleImageOp marble = new MarbleImageOp();
 
-	@Override
-	protected List<BufferedImageOp> getPreRippleFilters() {
-		List<BufferedImageOp> list = new ArrayList<BufferedImageOp>();
-		list.add(marble);
-		return list;
-	}
-	
+    @Override
+    protected List<BufferedImageOp> getPreRippleFilters() {
+        List<BufferedImageOp> list = new ArrayList<BufferedImageOp>();
+        list.add(marble);
+        return list;
+    }
+
 }
 

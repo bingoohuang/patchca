@@ -8,8 +8,6 @@ import com.github.bingoohuang.patchca.word.WordFactory;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 
-import java.awt.*;
-
 public class ChineseIdiomJianpingFactory implements WordFactory {
     protected static String[] idioms;
 
@@ -24,7 +22,7 @@ public class ChineseIdiomJianpingFactory implements WordFactory {
         int nextInt = RandUtils.randInt(idioms.length);
         String answer = idioms[nextInt];
 
-        return new WordBean("请输入“" + answer + "”的简拼", SpellUtils.getFirst(answer), "请输入简拼");
+        return new WordBean(answer, SpellUtils.getFirst(answer), "请输入简拼");
     }
 
     @Override

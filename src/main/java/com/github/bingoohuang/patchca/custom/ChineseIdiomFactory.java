@@ -4,7 +4,6 @@ import com.github.bingoohuang.patchca.random.RandUtils;
 import com.github.bingoohuang.patchca.random.StrUtils;
 import com.github.bingoohuang.patchca.word.WordBean;
 import com.github.bingoohuang.patchca.word.WordFactory;
-
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 

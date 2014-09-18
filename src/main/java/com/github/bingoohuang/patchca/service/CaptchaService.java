@@ -20,5 +20,5 @@ package com.github.bingoohuang.patchca.service;
 
 public interface CaptchaService {
 
-	Captcha getCaptcha();
+    Captcha getCaptcha();
 }
