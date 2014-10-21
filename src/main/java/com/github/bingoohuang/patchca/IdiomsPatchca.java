@@ -1,6 +1,7 @@
 package com.github.bingoohuang.patchca;
 
 import com.github.bingoohuang.patchca.color.ColorFactory;
+import com.github.bingoohuang.patchca.custom.ChineseIdiomFactory;
 import com.github.bingoohuang.patchca.custom.ChineseIdiomJianpingFactory;
 import com.github.bingoohuang.patchca.custom.ConfigurableCaptchaService;
 import com.github.bingoohuang.patchca.filter.predefined.CurvesRippleFilterFactory;
@@ -8,14 +9,12 @@ import com.github.bingoohuang.patchca.filter.predefined.DoubleRippleFilterFactor
 import com.github.bingoohuang.patchca.filter.predefined.RandomFilterFactory;
 import com.github.bingoohuang.patchca.filter.predefined.WobbleRippleFilterFactory;
 import com.github.bingoohuang.patchca.font.CustomRandomFontFactory;
-import com.github.bingoohuang.patchca.font.RandomFontFactory;
 import com.github.bingoohuang.patchca.service.Captcha;
-import com.github.bingoohuang.patchca.word.RandomWordFactory;
 
 import java.awt.*;
 import java.util.Random;
 
-public class PatchcaIdom {
+public class IdiomsPatchca {
     private static ConfigurableCaptchaService cs = new ConfigurableCaptchaService();
     private static Random random = new Random();
 
@@ -44,8 +43,7 @@ public class PatchcaIdom {
         fontFactory.setMinSize(22);
         cs.setFontFactory(fontFactory);
 
-        ChineseIdiomJianpingFactory wf = new ChineseIdiomJianpingFactory();
-        cs.setWordFactory(wf);
+        cs.setWordFactory(new ChineseIdiomFactory());
 
         RandomFilterFactory filterFactory = new RandomFilterFactory();
         filterFactory.addFilterFactory(new CurvesRippleFilterFactory(cs.getColorFactory()));

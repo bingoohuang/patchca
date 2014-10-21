@@ -12,7 +12,7 @@ public class ChineseIdiomFactory implements WordFactory {
     protected static String[] idioms;
 
     static {
-        String str = StrUtils.loadClasspathResourceToString("/com/github/bingoohuang/patchca/chineseidioms.txt");
+        String str = StrUtils.loadClasspathResourceToString("/com/github/bingoohuang/patchca/idoms2.txt");
         Iterable<String> split = Splitter.onPattern("\\s+").omitEmptyStrings().split(str);
         idioms = Iterables.toArray(split, String.class);
     }
