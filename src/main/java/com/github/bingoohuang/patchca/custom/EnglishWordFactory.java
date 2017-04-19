@@ -13,7 +13,8 @@ public class EnglishWordFactory implements WordFactory {
     private static String[] idioms;
 
     static {
-        String str = StrUtils.loadClasspathResourceToString("/com/github/bingoohuang/patchca/englishwords.txt");
+        String str = StrUtils.loadClasspathResourceToString(
+                "/com/github/bingoohuang/patchca/englishwords.txt");
         Pattern pattern = Pattern.compile("\\b\\w{5,8}\\b");
         Matcher matcher = pattern.matcher(str);
         ArrayList<String> words = new ArrayList<String>();

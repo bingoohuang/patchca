@@ -1,5 +1,7 @@
 package com.github.bingoohuang.patchca.background;
 
+import lombok.val;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -55,7 +57,7 @@ public class GradientBackgroundFactory implements BackgroundFactory {
                 break;
         }
 
-        GradientPaint gp = new GradientPaint(x1, y1, startColor, x2, y2, endColor);
+        val gp = new GradientPaint(x1, y1, startColor, x2, y2, endColor);
 
         Graphics2D g = dest.createGraphics();
         g.setPaint(gp);

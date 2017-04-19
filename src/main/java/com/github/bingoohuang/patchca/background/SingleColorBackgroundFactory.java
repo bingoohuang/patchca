@@ -26,12 +26,10 @@ import java.awt.image.BufferedImage;
 
 
 public class SingleColorBackgroundFactory implements BackgroundFactory {
-
     private ColorFactory colorFactory;
 
     public SingleColorBackgroundFactory() {
-        SingleColorFactory scf = new SingleColorFactory(Color.WHITE);
-        colorFactory = scf;
+        colorFactory = new SingleColorFactory(Color.WHITE);
     }
 
     public SingleColorBackgroundFactory(Color color) {

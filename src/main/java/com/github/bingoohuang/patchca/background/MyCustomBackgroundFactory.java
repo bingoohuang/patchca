@@ -60,7 +60,6 @@ public class MyCustomBackgroundFactory implements BackgroundFactory {
     }
 
     public static void main(String[] args) throws IOException {
-
         // 得到验证码对象,有验证码图片和验证码字符串
         Captcha captcha = Patchca1.next();
         // 取得验证码字符串放入Session
@@ -70,7 +69,8 @@ public class MyCustomBackgroundFactory implements BackgroundFactory {
         // 取得验证码图片并输出
         BufferedImage bufferedImage = captcha.getImage();
 
-        ImageIO.write(bufferedImage, "png", new FileOutputStream(new File("mycustom.png")));
+        ImageIO.write(bufferedImage, "png",
+                new FileOutputStream(new File("mycustom.png")));
     }
 
 
