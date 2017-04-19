@@ -1,14 +1,9 @@
-package com.github.bingoohuang.patchca.color;
+package com.github.bingoohuang.patchca.background;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import com.github.bingoohuang.patchca.background.BackgroundFactory;
-
 public class GradientBackgroundFactory implements BackgroundFactory {
-
     public enum Direction {
         Horizontal,
         Vertical,
@@ -31,9 +26,7 @@ public class GradientBackgroundFactory implements BackgroundFactory {
     }
 
     public void fillBackground(BufferedImage dest) {
-
         float x1, y1, x2, y2;
-
         switch (direction) {
             default:
             case Horizontal:

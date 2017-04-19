@@ -1,5 +1,6 @@
 package com.github.bingoohuang.patchca;
 
+import com.github.bingoohuang.patchca.background.GradientBackgroundFactory;
 import com.github.bingoohuang.patchca.color.ColorFactory;
 import com.github.bingoohuang.patchca.custom.ChineseIdiomFactory;
 import com.github.bingoohuang.patchca.custom.ChineseIdiomJianpingFactory;
@@ -19,6 +20,7 @@ public class IdiomsPatchca {
     private static Random random = new Random();
 
     static {
+        cs.setBackgroundFactory(new GradientBackgroundFactory());
 //        cs.setColorFactory(new SingleColorFactory(new Color(25, 60, 170)));
         cs.setColorFactory(new ColorFactory() {
             @Override
