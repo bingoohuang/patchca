@@ -26,7 +26,7 @@ public class MathExprFactory implements WordFactory {
 
     private String evalExpr(String expr) {
         try {
-            return "" + ((Double) engine.eval(expr)).intValue();
+            return String.valueOf(engine.eval(expr));
         } catch (ScriptException e) {
             return "error";
         }
