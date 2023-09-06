@@ -129,7 +129,7 @@
             -->
         </plugins>
     </build>
-<distributionManagement>
+    <distributionManagement>
         <repository>
             <id>releases</id>
             <name>Nexus Release Repository</name>
