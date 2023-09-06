@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
-
 import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +17,8 @@ public class RandomFontFactory extends RandomSystemFontFactory {
   @SneakyThrows
   private static List<Font> loadFonts(String... names) {
     List<Font> fonts = Lists.newArrayList();
-    ClassLoader cl = RandomFontFactory.class.getClassLoader();
+    ClassLoader cl = Thread.currentThread().getContextClassLoader();
+
     for (String name : names) {
       String path = "com/github/bingoohuang/patchca/" + name;
       @Cleanup InputStream is = cl.getResourceAsStream(path);
