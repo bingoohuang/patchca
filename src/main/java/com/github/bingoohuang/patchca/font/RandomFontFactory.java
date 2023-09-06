@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
+
+import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +21,9 @@ public class RandomFontFactory extends RandomSystemFontFactory {
     ClassLoader cl = RandomFontFactory.class.getClassLoader();
     for (String name : names) {
       String path = "com/github/bingoohuang/patchca/" + name;
-      try (InputStream is = cl.getResourceAsStream(path)) {
+      @Cleanup InputStream is = cl.getResourceAsStream(path);
+
+      try {
         Font f = Font.createFont(Font.TRUETYPE_FONT, is);
         fonts.add(f);
       } catch (Exception ex) {
@@ -34,11 +38,10 @@ public class RandomFontFactory extends RandomSystemFontFactory {
     Random r = new Random();
     Font f = fonts.get(r.nextInt(fonts.size()));
 
-    float size =  minSize;
+    float size = minSize;
     if (maxSize - minSize > 0) {
       size += r.nextInt(maxSize - minSize);
     }
     return f.deriveFont(size);
   }
-  
 }
