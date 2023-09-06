@@ -3,7 +3,6 @@ package com.github.bingoohuang.patchca;
 import com.github.bingoohuang.patchca.background.GradientBackgroundFactory;
 import com.github.bingoohuang.patchca.color.ColorFactory;
 import com.github.bingoohuang.patchca.custom.ChineseIdiomFactory;
-import com.github.bingoohuang.patchca.custom.ChineseIdiomJianpingFactory;
 import com.github.bingoohuang.patchca.custom.ConfigurableCaptchaService;
 import com.github.bingoohuang.patchca.filter.predefined.CurvesRippleFilterFactory;
 import com.github.bingoohuang.patchca.filter.predefined.DoubleRippleFilterFactory;
@@ -11,7 +10,6 @@ import com.github.bingoohuang.patchca.filter.predefined.RandomFilterFactory;
 import com.github.bingoohuang.patchca.filter.predefined.WobbleRippleFilterFactory;
 import com.github.bingoohuang.patchca.font.CustomRandomFontFactory;
 import com.github.bingoohuang.patchca.service.Captcha;
-
 import java.awt.*;
 import java.util.Random;
 

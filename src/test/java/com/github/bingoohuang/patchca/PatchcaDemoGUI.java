@@ -55,7 +55,7 @@ public class PatchcaDemoGUI extends JDialog implements ActionListener {
 
     public void createImage() {
         // Captcha captcha = new ConfigurableCaptchaService().getCaptcha();
-        Captcha captcha = IdiomsPatchca.next();
+        Captcha captcha = Patchca.next();
         if (captcha.getWord().equals(captcha.getChallenge())) {
             setTitle(captcha.getTips() + " 答:" + captcha.getChallenge());
         } else {

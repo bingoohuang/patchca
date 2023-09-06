@@ -9,7 +9,6 @@ import com.github.bingoohuang.patchca.filter.predefined.WobbleRippleFilterFactor
 import com.github.bingoohuang.patchca.font.RandomFontFactory;
 import com.github.bingoohuang.patchca.service.Captcha;
 import com.github.bingoohuang.patchca.word.RandomWordFactory;
-
 import java.awt.*;
 import java.util.Random;
 
