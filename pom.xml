@@ -102,7 +102,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <skip>false</skip>
                     <show>public</show>
                     <charset>UTF-8</charset>
                     <encoding>UTF-8</encoding>
@@ -130,5 +129,16 @@
             -->
         </plugins>
     </build>
-
+<distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Nexus Release Repository</name>
+            <url>${nexusReleaseUrl}</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>${nexusSnapshotUrl}</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
